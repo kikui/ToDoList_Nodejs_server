@@ -1,0 +1,14 @@
+﻿doctype html
+html
+  head
+    title= title
+  body
+    a(href='/todo') RETOUR
+    form(name="add", method='POST')
+          div
+            label(for='message') Message:
+            input(type='text', placeholder='message todo' , value= ''+ todo.message, name='message')
+          div
+            label(for='completion') Complet ? 
+            input(type='checkbox', name='completion', (#{todo.completion ? checked }))
+          button(type='submit', value="update") Update todo

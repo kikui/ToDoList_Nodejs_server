@@ -1,0 +1,11 @@
+﻿doctype html
+html
+  head
+     title= title
+  body
+    a(href='/todo') RETOUR
+    form(name="add", method='POST')
+          div
+            label(for='message') Message:
+            input(type='text', placeholder='message todo' name='message')
+            button(type='submit', value="add") Add Todo

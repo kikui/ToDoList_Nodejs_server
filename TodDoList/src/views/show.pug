@@ -1,0 +1,12 @@
+﻿doctype html
+html
+  head
+     title= title 
+  body
+        a(href='/todo') RETOUR
+        p id:#{todo.id} 
+        p message:#{todo.message} 
+        p terminé:#{todo.completion}
+        p created:#{todo.createdAt}
+        form(method='POST')
+            button(type='submit') Delete todo

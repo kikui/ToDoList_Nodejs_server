@@ -1,0 +1,18 @@
+﻿doctype html
+html
+  head
+     title= title 
+  body
+     a(href='/todo/add') Creer new todo
+
+     ul
+        each todo in todos
+            a(href="/todo/" + todo.id) Todo information
+            br
+            a(href="/todo/edit/" + todo.id) Edit Todo
+            li #{todo.message} 
+            li #{todo.completion ? 'terminé' : 'en cour'}
+            form(method='POST')
+                input(type='hidden', value='' + todo.id, name='id')
+                button(type='submit') Delete todo
+            br
