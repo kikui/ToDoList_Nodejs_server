@@ -1,0 +1,19 @@
+﻿doctype html
+html
+  head
+    title= title
+  body
+    a(href='/user/logout') Log out
+    br
+    a(href='/todo') RETOUR
+    form(method='POST')
+          div
+            label(for='team') your team name: 
+            input(type='text', name='team', placeholder='ex : nodePower !', value='' + user.team)
+          div
+            label(for='password') Password: 
+            input(type='text', name='password', placeholder='change password')
+          div
+            label(for='confirmpassword') Confirme your new password: 
+            input(type='text', name='confirmepassword', placeholder='retype your password')
+          button(type='submit', value="update") Update profile

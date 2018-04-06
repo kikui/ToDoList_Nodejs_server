@@ -1,11 +1,21 @@
 ﻿const Todo = require("../models/todo")
 const router = require('express').Router()
 
+function checkSignIn(req, res) {
+    if (req.session.user) {
+        console.log(req.session.user);
+        next();     //If session exists, proceed to page
+    } else {
+        console.log(req.session.user);
+        res.redirect('/user/login', { message: 'Not logged in !' })
+    }
+}
+
 router.get('/', (req, res, next) => {
     setTimeout(() => {
-        Todo.findAll().then((todos) => {
+        Todo.findAll({ where: { user:  req.session.user.pseudo } }).then((todos) => {
             res.format({
-                html: () => { res.render('index', { title: 'Bonjour !', todos: todos }) },
+                html: () => { res.render('index', { title: 'Bonjour ' + req.session.user.pseudo, todos: todos }) },
                 json: () => { res.send(todos) }
             })
         })
@@ -23,7 +33,7 @@ router.get('/edit/:todoId', (req, res, next) => {
     setTimeout(() => {
         Todo.findById(req.params.todoId).then(todo => {
             res.format({
-                html: () => { res.render('edit', { title: 'Bonjour !', todo: todo }) },
+                html: () => { res.render('edit', { title: 'Bonjour !' + req.session.user.pseudo, todo: todo }) },
                 json: () => { res.send(todo) }
             })
         })
@@ -68,7 +78,7 @@ router.get('/:todoId', (req, res, next) => {
 
 router.post('/add', (req, res, next) => {
     setTimeout(() => {
-        Todo.create({ message: req.body.message }).then(() => {
+        Todo.create({ message: req.body.message, user: req.session.user.pseudo }).then(() => {
             console.log("ajout effectué !")
         }).then(() => {
             res.redirect('/todo')

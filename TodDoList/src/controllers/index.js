@@ -1,7 +1,7 @@
 ﻿const router = require('express').Router()
 
 router.all('/', (req, res, next) => {
-    res.redirect('/todo')
+    res.redirect('/user')
 })
 
 module.exports = router

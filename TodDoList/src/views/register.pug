@@ -1,8 +1,11 @@
 ﻿doctype html
 html
   head
-    title
+    title Signup
   body
+    a(href='/user/login') Or login
+    if(message)
+         h4 #{message}
     form(method='POST')
           div
             label(for='pseudo') Pseudo:

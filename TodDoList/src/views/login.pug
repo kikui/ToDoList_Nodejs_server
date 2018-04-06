@@ -1,8 +1,11 @@
 ﻿doctype html
 html
   head
-    title
+    title login
   body
+    a(href='/user/register') Create new user
+    if(message)
+         h4 #{message}
     form(method='POST')
           div
             label(for='pseudo') Pseudo
@@ -11,3 +14,10 @@ html
             label(for='password') Password
             input(type='password' id='password' placeholder='password' name='password')
           button(type='submit') Log in
+          br
+          br
+    if(users)
+        p members list :
+        ul
+            each user in users
+                li #{user.pseudo} 
