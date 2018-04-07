@@ -24,6 +24,9 @@ const Todo = db.define('todos', {
     },
     user: {
         type: db.Sequelize.STRING
+    },
+    team: {
+        type: db.Sequelize.STRING
     }
 });
 

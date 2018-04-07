@@ -43,6 +43,7 @@ app.use(session({ secret: "azerty" }))
 app.use('/', require('./src/controllers/index'))
 app.use('/todo', require('./src/controllers/todo'))
 app.use('/user', require('./src/controllers/users'))
+app.use('/team', require('./src/controllers/team'))
 
 app.use(function (req, res, next) {
     let err = new Error('Not Found')

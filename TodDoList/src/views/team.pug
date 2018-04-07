@@ -1,0 +1,27 @@
+﻿doctype html
+html
+  head
+    title= title
+  body
+    p #{team}
+    a(href='/user/logout') Log out
+    br
+    a(href='/todo') Retour
+    br
+    if(todos)
+        a(href='/team/add') Creer new team todo
+    if(message)
+         h4 #{message}
+    if(todos)
+        ul
+            each todo in todos
+                a(href="/team/" + todo.id) Todo information
+                br
+                a(href="/team/edit/" + todo.id) Edit Todo
+                li #{todo.message} 
+                li #{todo.completion ? 'terminé' : 'en cour'}
+                li By: #{todo.user}
+                form(method='POST')
+                    input(type='hidden', value='' + todo.id, name='id')
+                    button(type='submit') Delete todo
+                br

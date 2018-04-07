@@ -6,6 +6,8 @@ html
     a(href='/user/logout') Log out
     br
     a(href='/todo') RETOUR
+    if(message)
+         h4 #{message}
     form(method='POST')
           div
             label(for='team') your team name: 

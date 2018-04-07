@@ -3,7 +3,10 @@ html
   head
      title= title
   body
-    a(href='/todo') RETOUR
+    if(title == "Add Todo !")
+        a(href='/todo') RETOUR
+    else
+        a(href='/team') RETOUR
     form(name="add", method='POST')
           div
             label(for='message') Message:

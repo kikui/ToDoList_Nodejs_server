@@ -3,10 +3,15 @@ html
   head
      title= title 
   body
-        a(href='/todo') RETOUR
-        p id:#{todo.id} 
-        p message:#{todo.message} 
-        p terminé:#{todo.completion}
-        p created:#{todo.createdAt}
+        if(title == "Todo information")
+            a(href='/todo') RETOUR
+        else
+            a(href='/team') RETOUR
+        p id: #{todo.id} 
+        p message: #{todo.message} 
+        p terminé: #{todo.completion}
+        p created At: #{todo.createdAt}
+        p updated At: #{todo.updatedAt}
+        p by : #{todo.user}
         form(method='POST')
             button(type='submit') Delete todo

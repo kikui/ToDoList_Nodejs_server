@@ -38,6 +38,9 @@
     <Compile Include="src\controllers\index.js">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="src\controllers\team.js">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="src\controllers\todo.js">
       <SubType>Code</SubType>
     </Compile>
@@ -70,10 +73,16 @@
     <Content Include="src\views\login.pug">
       <SubType>Code</SubType>
     </Content>
+    <Content Include="src\views\profile.pug">
+      <SubType>Code</SubType>
+    </Content>
     <Content Include="src\views\register.pug">
       <SubType>Code</SubType>
     </Content>
     <Content Include="src\views\show.pug">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="src\views\team.pug">
       <SubType>Code</SubType>
     </Content>
   </ItemGroup>

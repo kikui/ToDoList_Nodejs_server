@@ -7,8 +7,11 @@ html
      br
      a(href='/user/profile') Edit Profile
      br
+     a(href='/team') Team interface
+     br
      a(href='/todo/add') Creer new todo
-
+     if(message)
+         h4 #{message}
      ul
         each todo in todos
             a(href="/todo/" + todo.id) Todo information
