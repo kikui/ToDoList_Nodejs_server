@@ -8,11 +8,17 @@ html
     br
     a(href='/todo') Retour
     br
+    if(message)
+        h4 #{message}
     if(todos)
         a(href='/team/add') Creer new team todo
-    if(message)
-         h4 #{message}
+    if(users)
+        p member list :
+        ul
+            each user in users
+                li #{user.pseudo}
     if(todos)
+        p todos list :
         ul
             each todo in todos
                 a(href="/team/" + todo.id) Todo information

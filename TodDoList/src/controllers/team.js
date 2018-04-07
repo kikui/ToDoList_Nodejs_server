@@ -1,4 +1,5 @@
 ﻿const Todo = require("../models/todo")
+const Users = require("../models/users")
 const router = require('express').Router()
 
 function checkSignIn(req, res) {
@@ -21,9 +22,15 @@ router.get('/', (req, res, next) => {
                     team: req.session.user.team
                 }
             }).then(todos => {
-                res.format({
-                    html: () => { res.render('team', { title: 'Team interface', todos: todos, message: 'Salut les ' + req.session.user.team }) },
-                    json: () => { res.send(todos) }
+                Users.findAll({
+                    where: {
+                        team: req.session.user.team
+                    }
+                }).then((users) => {
+                    res.format({
+                        html: () => { res.render('team', { title: 'Team interface', todos: todos, message: 'Salut les ' + req.session.user.team, users: users }) },
+                        json: () => { res.send(todos) }
+                    })
                 })
             })
         }, 1000)
