@@ -10,8 +10,8 @@ html
         p id: #{todo.id} 
         p message: #{todo.message} 
         p terminé: #{todo.completion}
-        p created At: #{todo.createdAt}
-        p updated At: #{todo.updatedAt}
+        p created At: #{todo.createdAt.toLocaleString("en-GB",{weekday:"long",day:"numeric",month:"numeric",year:"numeric",hour:"numeric",minute:"numeric",hour12:false})}
+        p updated At: #{todo.updatedAt.toLocaleString("en-GB",{weekday:"long",day:"numeric",month:"numeric",year:"numeric",hour:"numeric",minute:"numeric",hour12:false})}
         p by : #{todo.user}
         form(method='POST')
             button(type='submit') Delete todo
